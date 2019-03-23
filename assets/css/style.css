@@ -1,0 +1,31 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-image: url("../images/tlozwall2.png");
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.leftContainer{
+    height: 350px;
+    background-color:rgba(160, 121, 15,0.4);
+    border-color: rgba(160, 121, 15);
+}
+
+.rightContainer{
+    height: 350px;
+    background-color:rgba(160, 121, 15, 0.4);
+    border-color: rgba(160, 121, 15);
+}
+
+.choices:hover{
+    font-stretch: expanded;
+    font-weight: bold;
+    color: rgba(90, 67, 4);
+
+}
