@@ -8,41 +8,50 @@
     <!--If you want to use bootstrap for style, undecided-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link type="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <!--Enter the Javascript-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="assets/javascript/app.js"></script>
 </head>
 
 <body>
-    <h1>Trivia Game</h1>
-    <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="questionsContainer card text-center align-middle">
 
-                <div class="time-left"></div><br>
-                <div class="questions "></div><br>
-                <div class="answers"></div>
+    <img class="mx-auto d-block" src="assets/images/tgame.png">
+    <div class="text-center startGame">
+        <button type="button" class="btn btn-secondary btn-lg align-middle mx-auto mt-5 ">Start!</button>
+    </div>
+    <div class="container mt-5 pt-5">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="leftContainer card align-middle text-center">
+                    <div class="questions pt-4 "></div><br>
+                    <div class="answers"></div>
+                </div>
             </div>
-        </div>
-        <div class="col-md-1"></div>
 
-        <div class="col-md-5 answersContainer">
-            <div class="container card align-middle ">
-                <div class="isAnswer">
-                    <h1></h1>
-                </div><br>
-                <div class="correctAnswer">
-                    <h1></h1>
-                </div><br>
-                <div></div>
 
+            <div class="col-md-5">
+                <div class="rightContainer card align-middle text-center">
+                    <div class="timeContainer">
+                        <div class="time-leftText pt-5">
+                            <h1>Time Left:</h1>
+                        </div><br>
+                        <div class="time-left"></div><br>
+                    </div>
+                    <div class="answersContainer">
+                        <div class="isAnswer">
+                            <h1></h1>
+                        </div><br>
+                        <div class="correctAnswer">
+                            <h1></h1>
+                        </div><br>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 </body>
 
 </html>
