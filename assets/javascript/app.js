@@ -14,7 +14,7 @@ var questions = [
     ["Question 3", "Ghirahim is the sword and servant of...", "Demise", "Ganondorf", "Batreaux", "Impa", "A"],
     ["Question 4", "Where is the Thunder Dragon Lanayru located?", "Sandship", "Lanayru Mining Facility", "Silent Realm", "Lanayru Gorge", "D"],
     ["Question 5", "With the infused power of the Four Elements the White Sword transforms into...", "The Four Sword", "The Master Sword", "Phantom Sword", "Biggoron's Sword", "A"],
-    ["Question 6", "Which one is the song Malon teaches Link?", "Song of Storms", "Epona's Song", "Scarecrow's Song", "Sun's Song", "B"],
+    ["Question 6", "Which one is the song Link learns from Malon?", "Song of Storms", "Epona's Song", "Scarecrow's Song", "Sun's Song", "B"],
     ["Question 7", "Magical conductor's baton given to Link by the King of the Red Lions...", "Skull Kid's Horn", "Horse Grass", "Howling Stone", "Wind Waker", "D"],
     ["Question 8", "Which one is the wish Linebeck asks to the Ocean King?", "To be rich", "To travel to another dimension", "To get back his ship", "To be immortal", "C"],
     ["Question 9", "What is the name of the old man that guides Link in  A Link to the Past?", " Sahasrahla", "Gaepora", "Osfala", "Aginah", "A"],
@@ -31,14 +31,18 @@ var explanations = ["Nayru is the Goddess of Wisdom, a recurring character in Th
                     "In The Legend of Zelda: Phantom Hourglass when Oshus asked for Linebeck's wish he states his one wish is to fix his boat which was destroyed in the final battle. ",
                     "Throughout his adventure, Link can find Telepathic Tiles on the walls of dungeons that allows Sahasrahla to telepathically contact Link and give him advice.",
                     "The Sheikah are a recurring race in the Legend of Zelda series. The Sheikah are an ancient clan of ninja-like warriors sworn to protect the Royal Family of Hyrule, even after death."];
-
+//Function will display the question in the left container
 function displayQuestion() {
+    $(".row").show();
     $(".container").show();
     $(".startGame").hide();
+    $(".showResults").hide();
+    //If we reach the last position in questions array, it will show the results
     if (pos >= questions.length) {
         showResults();
 
     } else {
+        //But, meanthile, this code is the one that will show the questions, the options, it will assign a value to each question and it will show the Time Left counter on the right container
         question = questions[pos][0];
         questionText = questions[pos][1];
         optA = questions[pos][2];
@@ -61,28 +65,37 @@ function displayQuestion() {
         $(".answersContainer").hide();
         $(".time-left").show();
         $(".time-leftText").show();
+        //Calls the function to start the countdown
         timetoAnswer();
+        //Calls rightAnswer function
         isRightAnswer();
 
     }
 };
 
 function isRightAnswer() {
+    //When the user clicks on any of the choices
     $(".choices").click(function () {
+        //Timer will stop
         stop();
+        //We add the value of the choice to userChoice  value
         userChoice = (this.value);
-        console.log(this.text);
-        console.log(this.value);
-        console.log(pos);
+        //If the option chosen by the user is the right answer...
         if (userChoice == rAnswer) {
+            //This line will avoid the user can select another answer...
             $('.choices').off('click');
+            //Calls the function related to the right answer that will be displayed on the right container
             rightAns();
         } else {
             $('.choices').off('click');
+            //If it was no the right answer, it will call the function that shows "Oops!"" and the right answer.
             wrongAns();
         }
+        //We will reset time every time the user choses an option
         resetTime();
+        //And will add +1 to the position of the questions array in order to get the next question
         pos++;
+        //Next question will appear after 6 seconds
         setTimeout(displayQuestion, 6000);
     });
 };
@@ -125,49 +138,62 @@ function resetTime() {
 
 function rightAns() {
     correct++;
-    hideTimer();
-    $(".answersContainer").show();
-    $(".isAnswer").html("<h3>Congratulations!!</h3>");
-    $(".correctAnswer").html("<br><h4> The right answer is " + rAnswer + "</h4><br>");
-    $(".correctAnswer").append("<p>" + explan + "</p>");
+    $(".isAnswer").html("<h2>Congratulations!!</h2>");
+    showAnswer();
 };
 
 function wrongAns() {
     incorrect++;
-    hideTimer();
-    $(".answersContainer").show();
-    $(".isAnswer").html("<h3>Oops!!</h3>");
-    $(".correctAnswer").html("<br><p> The right answer is " + rAnswer +"</h4><br>");
-    $(".correctAnswer").append("<p>" + explan + "</p>");
+    $(".isAnswer").html("<h2>Oops!!</h2>");
+    showAnswer();
 };
 
 function unAns() {
     unanswered++;
-    hideTimer();
-    $(".answersContainer").show();
-    $(".isAnswer").html("<h3>Time's Up!!</h3>");
-    $(".correctAnswer").html("<br><h4> The right answer is " + rAnswer + "</h4><br>");
-    $(".correctAnswer").append("<p>" + explan + "</p>");
+    $(".isAnswer").html("<h2>Time's Up!!</h2>");
+    showAnswer();
+    
 }
 
 function showResults() {
-    hideTimer();
-    $(".answersContainer").hide();
-    $(".questions").html("<h2>Your Results: <h2>")
-    $(".answers").html("<h3> Correct answers: " + correct + "</h3><br>")
-    $(".answers").append("<h3>Wrong answers: " + incorrect + "</h3><br>");
+    $(".showResults").show();
+    $(".row").hide();
+    //hideTimer();
+    //$(".answersContainer").hide();
+    $(".triviaResults").show();
+    $(".triviaResults").html("<h2>Your Results: </h2><br>")
+    $(".triviaResults").append("<h3> Correct answers: " + correct + "</h3><br>")
+    $(".triviaResults").append("<h3>Wrong answers: " + incorrect + "</h3><br>");
     if (unanswered >= 1) {
-        $(".answers").append("<h3>Unanswered questions: " + unanswered + "</h3><br>");
+        $(".triviaResults").append("<h3>Unanswered questions: " + unanswered + "</h3><br>");
     }
-
+    $(".restartGame").click(restartGame);
 
 }
 
 function startGame(){
+    $(".showResults").hide();
     $(".startGame").click(displayQuestion);
+}
+
+function restartGame(){
+    $(".showResults").hide();
+    $(".triviaResults").hide();
+    correct = 0;
+    incorrect = 0;
+    unanswered = 0;
+    pos = 0;
+    displayQuestion();
 }
 
 function hideTimer(){
     $(".time-left").hide();
     $(".time-leftText").hide();
 };
+
+function showAnswer(){
+    hideTimer();
+    $(".answersContainer").show();
+    $(".correctAnswer").html("<br><h4> The right answer is " + rAnswer + "</h4><br>");
+    $(".correctAnswer").append("<p>" + explan + "</p>");
+}
