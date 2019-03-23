@@ -29,3 +29,8 @@ body {
     color: rgba(90, 67, 4);
 
 }
+
+.showResults{
+    background-color:rgba(160, 121, 15, 0.4);
+    border-color: rgba(160, 121, 15);
+}
