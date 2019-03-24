@@ -1,7 +1,7 @@
 # TriviaGame
 Tivia Game using Javascript for the logic and jQuery to manipulate HTML.
 
-##How does it Work?
+<h2>How does it Work?</h2>
 After pressing the start button, only one question will be displayed with a timer aside until the player answers it or their time runs out. The player must choose an option to answer the question.
 
 When the player's time runs out or the player has already chosen an answer, the timer disappears and the correct answer is shown with a brief explanation about it.
