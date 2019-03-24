@@ -7,10 +7,16 @@ var unanswered = 0;
 var optA, optB, optC, optD, rAnswer, explan;
 var time1 = 16;
 var intervalTime1;
+/*
+//This was just audio testing
 const questionAudio = new Audio ("./assets/audio/Oracle_Secret.wav");
 const totalAudio = new Audio ("./assets/audio/Oracle_Fanfare.wav");
 const wrongAudio = new Audio ("./assets/audio/Oracle_Error.wav");
 const rightAudio = new Audio("./assets/audio/Oracle_Item.wav");
+wrongAudio.volume = 0.2; 
+rightAudio.volume = 0.2; 
+totalAudio.volume = 0.2; 
+questionAudio.volume = 0.2;*/
 
 var questions = [
     ["Question 1", "Nayru is the Goddess  of...","Power", "Wisdom", "Courage","Creation", "B"],
@@ -57,7 +63,7 @@ function displayQuestion() {
         rAnswer = questions[pos][6];
         explan = explanations[pos];
         //Display questions
-        questionAudio.play();
+        //questionAudio.play();
         $(".questions").html("<h3>" + question + "</h3>");
         $(".questions").append("<h4>" + questionText + "</h4>");
         $(".answers").html("<div class='choices choice1 ' value='A'> a) " + optA + "</div><br>");
@@ -143,21 +149,21 @@ function resetTime() {
 
 function rightAns() {
     correct++;
-    rightAudio.play();
+    //rightAudio.play();
     $(".isAnswer").html("<h2>That's Right!!</h2>");
     showAnswer();
 };
 
 function wrongAns() {
     incorrect++;
-    wrongAudio.play();
+    //wrongAudio.play();
     $(".isAnswer").html("<h2>Oops!!</h2>");
     showAnswer();
 };
 
 function unAns() {
     unanswered++;
-    wrongAudio.play();
+    //wrongAudio.play();
     $(".isAnswer").html("<h2>Time's Up!!</h2>");
     showAnswer();
     
@@ -168,7 +174,7 @@ function showResults() {
     $(".leftContainer").hide();
     $(".rightContainer").hide();
     $(".triviaResults").show();
-    totalAudio.play();
+    //totalAudio.play();
     $(".triviaResults").html("<h2>Your Results: </h2><br>")
     $(".triviaResults").append("<h3> Correct answers: " + correct + "</h3><br>")
     $(".triviaResults").append("<h3>Wrong answers: " + incorrect + "</h3><br>");
