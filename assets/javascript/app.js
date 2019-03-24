@@ -33,7 +33,8 @@ var explanations = ["Nayru is the Goddess of Wisdom, a recurring character in Th
                     "The Sheikah are a recurring race in the Legend of Zelda series. The Sheikah are an ancient clan of ninja-like warriors sworn to protect the Royal Family of Hyrule, even after death."];
 //Function will display the question in the left container
 function displayQuestion() {
-    $(".row").show();
+    $(".leftContainer").show();
+    $(".rightContainer").show();
     $(".container").show();
     $(".startGame").hide();
     $(".showResults").hide();
@@ -63,8 +64,7 @@ function displayQuestion() {
         $(".answers").append("<div class='choices choice4  'value='D'> d) " + optD + "</div><br>");
         $(".choice4").val("D");
         $(".answersContainer").hide();
-        $(".time-left").show();
-        $(".time-leftText").show();
+        $(".timeContainer").show();
         //Calls the function to start the countdown
         timetoAnswer();
         //Calls rightAnswer function
@@ -138,7 +138,7 @@ function resetTime() {
 
 function rightAns() {
     correct++;
-    $(".isAnswer").html("<h2>Congratulations!!</h2>");
+    $(".isAnswer").html("<h2>That's Right!!</h2>");
     showAnswer();
 };
 
@@ -157,9 +157,8 @@ function unAns() {
 
 function showResults() {
     $(".showResults").show();
-    $(".row").hide();
-    //hideTimer();
-    //$(".answersContainer").hide();
+    $(".leftContainer").hide();
+    $(".rightContainer").hide();
     $(".triviaResults").show();
     $(".triviaResults").html("<h2>Your Results: </h2><br>")
     $(".triviaResults").append("<h3> Correct answers: " + correct + "</h3><br>")
@@ -187,8 +186,7 @@ function restartGame(){
 }
 
 function hideTimer(){
-    $(".time-left").hide();
-    $(".time-leftText").hide();
+    $(".timeContainer").hide();
 };
 
 function showAnswer(){

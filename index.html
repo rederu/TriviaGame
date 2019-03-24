@@ -15,51 +15,43 @@
 </head>
 
 <body>
-
-    <img class="mx-auto d-block" src="assets/images/tgame.png">
-    <div class="text-center align-middle startGame">
-        <button type="button" class="btn btn-light btn-lg mx-auto mt-5 ">Start!</button>
-    </div>
-    <div class="container mt-5 pt-5">
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="leftContainer card align-middle text-center">
-                    <div class="questions pt-4 "></div><br>
-                    <div class="answers"></div>
-                </div>
-            </div>
-
-
-            <div class="col-md-5">
-                <div class="rightContainer card align-middle text-center">
-                    <div class="timeContainer">
-                        <div class="time-leftText pt-5">
-                            <h1>Time Left:</h1>
-                        </div><br>
-                        <div class="time-left"></div><br>
-                    </div>
-                    <div class="answersContainer">
-                        <div class="isAnswer">
-                            <h1></h1>
-                        </div><br>
-                        <div class="correctAnswer">
-                            <h1></h1>
-                        </div><br>
-                    </div>
-
-                </div>
-            </div>
+    <div class="wrapper1">
+        <div class="image">
+            <img src="assets/images/tgame.png" style="display:block; margin-left:auto; margin-right:auto;" />
         </div>
+        <div class="startGame">
+            <button type="button" class="btn btn-light btn-lg mx-auto mt-5 ">Start!</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="leftContainer card text-center">
+            <div class="questions"></div><br>
+            <div class="answers"></div>
+        </div>
+        <div class="rightContainer card text-center">
+            <div class="timeContainer">
+                <div class="time-leftText">
+                    <h1>Time Left:</h1>
+                </div>
+                <div class="time-left"></div>
+            </div>
+            <div class="answersContainer">
+                <div class="isAnswer"></div>
+                <div class="correctAnswer"></div><br>
+            </div>
+
+        </div>
+
         <div class="text-center card align-middle showResults">
-                
-            <div class="triviaResults"></div><br>
-            <button type="button" class="btn btn-light btn-lg mx-auto mt-5  mb-5 restartGame">Play Again?</button>
-                
 
+            <div class="triviaResults"></div>
+            <button type="button" class="btn btn-light btn-lg mx-auto mt-3  mb-3 restartGame">Play Again?</button>
         </div>
-
     </div>
+
+
 </body>
+
 
 </html>
