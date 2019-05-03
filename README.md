@@ -11,4 +11,4 @@ After 6 seconds, the next question will be shown and the timer is being displaye
 When the player completes the 10 questions trivia, a screen will show the number of right answers, wrong answers, and unanswered questions. A replay button will also be shown to restart the game if the player wants to. 
 
 <h3>Live Demo</h3>
-https://rederugithub.io/TriviaGame/
+https://rederu.github.io/TriviaGame/
